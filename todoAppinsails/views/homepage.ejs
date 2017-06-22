@@ -1,0 +1,60 @@
+<% if (!req.session.me) { %>
+<div>
+  <div class="container" ng-controller="TodoCtrl">
+    <div class="jumbotron">
+      <h2 align="center">Todo Application</h2>
+      <br>
+      <div id="todo-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <a href="/login">Login</a> | <a href="/signup">Signup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
+
+
+<% if (req.session.me) { %>
+
+<div>
+  <div class="container" ng-controller="TodoCtrl">
+    <a href="/logout" style="float: right;">Logout</a>
+    <div class="jumbotron">
+      <h2 align="center">Todo Application - <%= req.session.userName%> </h2>
+      <br>
+      <div id="todo-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <form action="/addTodo" method="post">
+            <div class="form-group">
+              <input type="text" class="form-control input-lg text-center" placeholder="Add Todo!" name="msg">
+              <br>
+              <button type="submit" class="btn btn-primary btn-lg">Add Todo</button>
+            </div>
+          </form>
+          <a href="/todoList">Todo List</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% } %>
+
+<script>
+
+//io.socket.get('/addTodo');
+//
+//io.socket.on('message', function (msg) {
+//  console.log(msg);
+//});
+//
+//io.socket.on('user', function (msg) {
+//  console.log('user alert! ',msg);
+//});
+//
+//io.socket.on('todo', function (msg) {
+//  console.log('todo alert! ',msg);
+//});
+
+</script>

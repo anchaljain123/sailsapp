@@ -1,0 +1,22 @@
+<div>
+  <div class="container" ng-controller="TodoCtrl">
+    <a href="/" style="float: right">back</a>
+    <div class="jumbotron">
+      <h2 align="center"> <%= req.session.userName %>'s TODO List</h2>
+      <br>
+      <div id="todo-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <div class="form-group">
+            <ul>
+                <% for(var i=0; i<todos.length; i++) { %>
+              <li>
+                  <%= todos[i].msg %>
+              </li>
+                <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
