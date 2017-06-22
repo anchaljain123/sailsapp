@@ -1,1 +1,3 @@
 # sailsapp
+
+#run : sails lift
